@@ -6,8 +6,13 @@ VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   
-  config.vm.box = "precise64_fusion"
-  config.vm.box_url = "http://files.vagrantup.com/precise64_vmware.box"
+  config.vm.box = "precise64"
+  config.vm.box_url = "http://files.vagrantup.com/precise64.box"
+    
+  config.vm.provider "vmware_fusion" do |v, override|
+      override.vm.box = "precise64_fusion"
+      override.vm.box_url = "http://files.vagrantup.com/precise64_vmware.box"
+    end
     
   config.vm.define :loadbalancer, primary: true  do |role|
     role.vm.hostname = "loadbalancer.local"
