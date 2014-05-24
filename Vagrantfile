@@ -15,6 +15,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     end
     
   config.vm.define :loadbalancer, primary: true  do |role|
+    
+    role.vm.provider "vmware_fusion" do |v, override|
+      v.vmx["memsize"] = "2048"
+      v.vmx["numvcpus"] = "2"
+    end
+    
     role.vm.hostname = "loadbalancer.local"
     role.vm.network "private_network", ip: "192.168.1.5"
     role.vm.provision :shell, :path => "./scripts/setup_load_balancer.sh"
@@ -24,6 +30,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
   
   config.vm.define :web1 do |role|
+    
+    role.vm.provider "vmware_fusion" do |v, override|
+      v.vmx["memsize"] = "512"
+      v.vmx["numvcpus"] = "1"
+    end
+    
     role.vm.hostname = "webServer1.local"
     role.vm.provision :shell, :path => "./scripts/setup_web_server.sh"
     role.vm.provision :shell, :path => "./scripts/setup_serf.sh"
@@ -31,6 +43,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
   
   config.vm.define :web2 do |role|
+    
+    role.vm.provider "vmware_fusion" do |v, override|
+      v.vmx["memsize"] = "512"
+      v.vmx["numvcpus"] = "1"
+    end
+    
     role.vm.hostname = "webServer2.local"
     role.vm.provision :shell, :path => "./scripts/setup_web_server.sh"
     role.vm.provision :shell, :path => "./scripts/setup_serf.sh"
@@ -38,6 +56,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
   
   config.vm.define :web3 do |role|
+    
+    role.vm.provider "vmware_fusion" do |v, override|
+      v.vmx["memsize"] = "512"
+      v.vmx["numvcpus"] = "1"
+    end
+    
     role.vm.hostname = "webServer3.local"
     role.vm.provision :shell, :path => "./scripts/setup_web_server.sh"
     role.vm.provision :shell, :path => "./scripts/setup_serf.sh"
@@ -45,6 +69,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
   
   config.vm.define :web4 do |role|
+    
+    role.vm.provider "vmware_fusion" do |v, override|
+      v.vmx["memsize"] = "512"
+      v.vmx["numvcpus"] = "1"
+    end
+    
     role.vm.hostname = "webServer4.local"
     role.vm.provision :shell, :path => "./scripts/setup_web_server.sh"
     role.vm.provision :shell, :path => "./scripts/setup_serf.sh"
@@ -52,6 +82,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
   
   config.vm.define :web5 do |role|
+    
+    role.vm.provider "vmware_fusion" do |v, override|
+      v.vmx["memsize"] = "512"
+      v.vmx["numvcpus"] = "1"
+    end
+    
     role.vm.hostname = "webServer5.local"
     role.vm.provision :shell, :path => "./scripts/setup_web_server.sh"
     role.vm.provision :shell, :path => "./scripts/setup_serf.sh"
@@ -59,6 +95,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
   
   config.vm.define :web6 do |role|
+    
+    role.vm.provider "vmware_fusion" do |v, override|
+      v.vmx["memsize"] = "512"
+      v.vmx["numvcpus"] = "1"
+    end
+    
     role.vm.hostname = "webServer6.local"
     role.vm.provision :shell, :path => "./scripts/setup_web_server.sh"
     role.vm.provision :shell, :path => "./scripts/setup_serf.sh"
@@ -66,6 +108,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
   
   config.vm.define :web7 do |role|
+    
+    role.vm.provider "vmware_fusion" do |v, override|
+      v.vmx["memsize"] = "512"
+      v.vmx["numvcpus"] = "1"
+    end
+    
     role.vm.hostname = "webServer7.local"
     role.vm.provision :shell, :path => "./scripts/setup_web_server.sh"
     role.vm.provision :shell, :path => "./scripts/setup_serf.sh"
