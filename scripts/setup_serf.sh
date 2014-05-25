@@ -14,7 +14,7 @@ sudo apt-get install -y unzip
 
 # Download and install Serf
 cd /tmp
-until wget -O serf.zip https://dl.bintray.com/mitchellh/serf/0.1.1_linux_amd64.zip; do
+until wget -O serf.zip https://dl.bintray.com/mitchellh/serf/0.6.0_linux_amd64.zip; do
     sleep 1
 done
 unzip serf.zip
@@ -94,7 +94,7 @@ respawn
 
 script
     sleep 5
-    exec /usr/local/bin/serf join 192.168.1.5
+    exec /usr/local/bin/serf join loadbalancer.example.com
 end script
 EOF
 sudo mv /tmp/join.conf /etc/init/serf-join.conf
